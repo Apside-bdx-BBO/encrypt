@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="encrypt">
+    <output-path>$PROJECT_DIR$/out/artifacts/encrypt</output-path>
+    <root id="archive" name="encrypt.jar">
+      <element id="library" level="application" name="org.apache.servicemix.bundles:org.apache.servicemix.bundles.bcprov-jdk15on:1.55_2" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="encrypt" />
+      <element id="library" level="project" name="org.apache.commons:commons-lang3:3.5" />
+    </root>
+  </artifact>
+</component>
