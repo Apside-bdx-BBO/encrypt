@@ -8,6 +8,7 @@
       </element>
       <element id="module-output" name="encrypt" />
       <element id="library" level="project" name="org.apache.commons:commons-lang3:3.5" />
+      <element id="library" level="project" name="commons-codec:commons-codec:1.10" />
     </root>
   </artifact>
 </component>
