@@ -43,25 +43,20 @@ public class Main {
 
             out.print("Encrypt Key : "+ Base64.encodeBase64String(keyAES.getEncoded()));
             if (fileToEncrypt != null && StringUtils.isNotEmpty(fileToEncrypt)) {
+
                 try {
                     aesHelper.aesEncryptFile(fileToEncrypt, keyAES);
-
-                } catch (NoSuchPaddingException e) {
-                    e.printStackTrace();
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                } catch (NoSuchProviderException e) {
-                    e.printStackTrace();
                 } catch (InvalidKeyException e) {
                     e.printStackTrace();
                 }
 
 
-            } else if (type != null && DECRYPT.equals(type) && args.length == 4){
+            }
+        } else if (type != null && DECRYPT.equals(type) && args.length == 4){
                 out.print(DECRYPT +" process");
                 String fileToDecrypt = args[1];
-                String aesEncryptStringKey = args[2];
-                String rsaPrivateKeyPath = args[3];
+                String aesEncryptStringKey = args[3];
+                String rsaPrivateKeyPath = args[2];
 
                 String decryptKey = null;
 
@@ -92,6 +87,4 @@ public class Main {
                 out.print("pas de fichiers à encrypter");
             }
         }
-
-    }
 }

@@ -120,5 +120,3 @@ local.properties
 lib/
 src/main/resources/
 src/test/
-.idea/
-*.iml

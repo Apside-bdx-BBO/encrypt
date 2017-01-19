@@ -41,12 +41,9 @@ public interface IAesHelper {
      * @param fileToEncrypt the absolute path of the file
      * @param key the key to decrypt the file
      * @throws IOException IOException
-     * @throws NoSuchPaddingException padding exception
-     * @throws NoSuchAlgorithmException algorithm exception
-     * @throws NoSuchProviderException provider exception
      * @throws InvalidKeyException key exception
      */
-    void aesEncryptFile(String fileToEncrypt, SecretKey key) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException;
+    void aesEncryptFile(String fileToEncrypt, SecretKey key) throws IOException, InvalidKeyException;
 
     /**
      * Prepare a random secrete key to encrypt

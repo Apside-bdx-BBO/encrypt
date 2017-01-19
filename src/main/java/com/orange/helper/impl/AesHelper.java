@@ -78,28 +78,21 @@ public class AesHelper implements IAesHelper {
         return originalKey;
     }
 
-    public void aesEncryptFile(String fileToEncrypt, SecretKey key) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException {
+    public void aesEncryptFile(String fileToEncrypt, SecretKey key) throws IOException, InvalidKeyException {
         cipher.init(Cipher.ENCRYPT_MODE, key);
 
-        FileInputStream fis = null;
-        FileOutputStream fos = null;
+        try (FileOutputStream fos = new FileOutputStream(fileToEncrypt + "_easCrypted")) {
+            try (FileInputStream fis = new FileInputStream(fileToEncrypt)) {
 
-        fos = new FileOutputStream(fileToEncrypt + "_easCrypted");
-        fis = new FileInputStream(fileToEncrypt);
+                try (CipherOutputStream cos = new CipherOutputStream(fos, cipher)) {
 
-        CipherOutputStream cos = null;
-        if (fos != null) {
-            cos = new CipherOutputStream(fos, cipher);
-        }
-
-        if (cos != null) {
-            int i;
-            while ((i = fis.read(BLOCK.get())) != -1) {
-                cos.write(BLOCK.get(), 0, i);
+                    int i;
+                    while ((i = fis.read(BLOCK.get())) != -1) {
+                        cos.write(BLOCK.get(), 0, i);
+                    }
+                    cos.close();
+                }
             }
-            cos.close();
         }
-        fis.close();
-        fos.close();
     }
 }

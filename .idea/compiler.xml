@@ -9,8 +9,8 @@
         <module name="encrypt" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="encrypt" target="1.5" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="encrypt" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
